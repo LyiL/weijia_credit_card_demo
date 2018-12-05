@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/vip_month_card.css">
+		<script src="js/mobile.js"></script>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<!----------------------------------header--------------------------------->
+		<div class="header">
+			<img class="header-img-box" src="img/header.png"/>
+		</div>
+		<!----------------------------------header--------------------------------->
+		<!----------------------------------content--------------------------------->
+		<div class="content">
+			<div class="content-top" style="padding: 0.44rem 0.28rem 0 0.28rem;margin-bottom: 0.89rem;">
+				<div class="" style="background: #fff;padding: 0.36rem 0 0.34rem 0">
+					<div class="" style="margin-bottom: 0.62rem;font-size: 0.24rem; color: #5d5d5d;text-align: center;">
+						<span style="display: inline-block;width:0.44rem; height: 0.45rem;margin-right: 0.1rem;background: url(img/icon.png) no-repeat right center;background-size:0.44rem 0.45rem;vertical-align: middle"></span>
+						<span style="vertical-align: middle">腾讯视频VIP会员月卡</span>
+					</div>
+					<div class="" style="margin-bottom: 0.46rem;font-size: 0.34rem; color: #333;text-align: center;">
+						腾讯视频VIP会员月卡
+					</div>
+					<div class="" style="margin-bottom: 0.42rem;font-size: 0.24rem;color: #a8a8a8;text-align: center;">
+						使用有效期: 至2018年12月29日
+					</div>
+
+					<div id="code-box" class="" style="display:none;margin-bottom: 0.4rem;font-size: 0.34rem; color: #333;text-align: center;">
+						<!--券码：-->
+					</div>
+					<div id="hint-box" class="" style="display:none;margin-bottom: 0.42rem;font-size: 0.24rem;color: #a8a8a8;text-align: center;">
+						请在产品使用页面填写券码，填写前可能需要登录
+					</div>
+
+					<div id="use-box" class="" style="font-size: 0.26rem;color: #fff;text-align: center;">
+						<img id="use" src="img/use.png" style="width: 3.26rem; height: 0.62rem;display:block; margin: 0 auto;"/>
+					</div>
+					<div id="copy-use-box" class="" style="display:none;font-size: 0.26rem;color: #fff;text-align: center;">
+						<img src="img/copy-use.png" style="width: 3.26rem; height: 0.62rem;display:block; margin: 0 auto;"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-bottom" style="width: 100%;padding: 0.28rem 0.22rem 0.28rem 0.28rem;background: #fff">
+				<img src="img/8.png" style="width: 6.7rem; height: 1.14rem"/>
+			</div>
+		</div>
+		<!----------------------------------content--------------------------------->
+	</body>
+	<script>
+		$(function() {
+            $('#use').click(function () {
+                var url = "http://zjw.dev.szulodev.com/api/order/demo/underorder";
+                var number = parseInt(Math.random()*10000);
+                var param = {
+                    "out_order_no":"201811151616" + number,
+//                    "out_order_no":"201811151616" ,
+                    "client_no":"26101045",
+                    "goods_no": "800000045",
+                    "spec_no":"900000064",
+                    "goods_qua":"1",
+                    "attach":"1",
+                    "nonce_str":"123456",
+                    "signkey":"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAN3Xv5fFtrIgPPWJMO/W17diTsm1HJ2WPyTKK+8qbSxgYLd/4drNiyN8bpdSOGw7prrrMV0/PFWHV9Z1eAmLCotu1cIqxLvYeKx8csdMIlrlmRlk3Y0fK5HMZMIoHqPTK0Bnn1kSTS8nLzQVBvU0wMJF50jDiwAwLDAtHfRf4e5fAgMBAAECgYBhmmS/P8vLvwdS+BNB0oKCOoxzjm2Sn+IUK6b8yOvTlGu5EFisTbaj3EFD7nbIl84ZexTy87l13+AziOdRO41dTXg02wl/lPNurmCtph4DUGy5sCWey+biZ+Bgn0/1cnooPMG4WjKpUMPD2BveFk5Yteg4U62m3F5HtPcL9JTzoQJBAPi3yHl/F+NV4sPhIOWSRngdN5egEdwRgXEg1m4YOx4IT+Cu+N0obc3Jcsk7J59K9QMN+c8rC4+MAGSwaFEjrFcCQQDkVocmZJE85mHvH6IdOuxUMqblBc41XGIDaleVlThnuGRve4s7q0kEMNEMKIJ4kOPBuxWQwmB24xf6TNS0Ook5AkAKStCo9nFunuc7Y92QonT4E31xcNZMXQ0WOV2mQKpxm7Zyfcsem8Wvdl6hpSkGlnt9HN7xi752ujxp7kLi2K8RAkEAgXSdQyMZRNHJDG1+19ukSUg+XvIfqxkpaI5OAbyMMiHUr2/3zGicCQg0PRRqhDiBKEENRPku/7hYy8vrfBMD4QJBAJpkHXa1GZESUD0mtX/8DylFZmEpU9DmB1RoBlKe5KLVLqlPmN3ofUQHJkv8u5/GEjIT5jT99LGsc9QIc+b68CY="
+                };
+//                console.log('JSON.stringify(param):::',JSON.stringify(param));
+                $.ajax({
+                    type: "post",
+                    url: url,
+//                    data: JSON.stringify(param),
+                	data: param,
+                    cache: false,
+                    async : false,
+                    dataType: "json",
+                    success: function (data ,textStatus, jqXHR)
+                    {
+                        if(data.err_code && data.err_code_des) {
+                            alert(data.err_code_des);
+                            return false;
+						}
+//                        var codeInfo = JSON.parse(data);
+                        console.log("data::",data,"data['card_no']",data["card_no"]);
+                        $("#use-box").hide();
+                        $("#copy-use-box").show();
+                        $("#code-box").show().html("券码：" + data["card_no"]);
+                        $("#hint-box").show();
+                    },
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("请求失败！");
+                    }
+                });
+
+            });
+		});
+	</script>
+</html>

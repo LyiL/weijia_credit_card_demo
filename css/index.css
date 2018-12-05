@@ -1,0 +1,44 @@
+/*header*/
+.header{
+    background: #f2f2f2;
+    /*height: 1.2rem;*/
+    padding: 0.58rem 0.28rem 0.28rem 0.28rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+.header-img-box{
+    width: 100%;
+    /*height: 0.4rem;*/
+}
+.border_b:after{
+    content:'';
+    height: 1px;
+    width: 100%;
+    display:block;
+    background:#e7e7e7;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleY(0.5)
+}
+/*header*/
+
+/*content内容区*/
+
+
+/*content内容区*/
+
+/*footer*/
+.footer{
+    background: #fff;
+    padding: 0.14rem 0 0.1rem 0;
+    display: flex;
+    /*height: 0.89rem;*/
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/*footer*/
+
