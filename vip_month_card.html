@@ -31,7 +31,7 @@
 					</div>
 
 					<div id="code-box" class="" style="display:none;margin-bottom: 0.4rem;font-size: 0.34rem; color: #333;text-align: center;">
-						<!--券码：-->
+
 					</div>
 					<div id="hint-box" class="" style="display:none;margin-bottom: 0.42rem;font-size: 0.24rem;color: #a8a8a8;text-align: center;">
 						请在产品使用页面填写券码，填写前可能需要登录
@@ -41,7 +41,7 @@
 						<img id="use" src="img/use.png" style="width: 3.26rem; height: 0.62rem;display:block; margin: 0 auto;"/>
 					</div>
 					<div id="copy-use-box" class="" style="display:none;font-size: 0.26rem;color: #fff;text-align: center;">
-						<img src="img/copy-use.png" style="width: 3.26rem; height: 0.62rem;display:block; margin: 0 auto;"/>
+						<img id="copy-use" src="img/copy-use.png" style="width: 3.26rem; height: 0.62rem;display:block; margin: 0 auto;"/>
 					</div>
 				</div>
 			</div>
@@ -50,12 +50,14 @@
 				<img src="img/8.png" style="width: 6.7rem; height: 1.14rem"/>
 			</div>
 		</div>
+		<!--<textarea id="copy-code" style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;"></textarea>-->
+		<!--<button onclick="copyText()">copy</button>-->
 		<!----------------------------------content--------------------------------->
 	</body>
 	<script>
 		$(function() {
             $('#use').click(function () {
-                var url = "http://zjw.dev.szulodev.com/api/order/demo/underorder";
+                var url = "http://zjw.dev.szulodev.com/demo/order/underorder";
                 var number = parseInt(Math.random()*10000);
                 var param = {
                     "out_order_no":"201811151616" + number,
@@ -83,12 +85,33 @@
                             alert(data.err_code_des);
                             return false;
 						}
-//                        var codeInfo = JSON.parse(data);
-                        console.log("data::",data,"data['card_no']",data["card_no"]);
                         $("#use-box").hide();
                         $("#copy-use-box").show();
-                        $("#code-box").show().html("券码：" + data["card_no"]);
+//                        $("#code").html(data["card_no"]);
+//                        $("#code-box").show();
+                        $("#code-box").show().html("券码：" + '<span id="code">'+data['card_no']+'</span>' + '<textarea id="copy-code" style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;"></textarea>');
                         $("#hint-box").show();
+
+                        $('#copy-use').click(function () {
+							//jq复制文本
+                            $("#copy-code").val($("#code").html()); // 修改文本框的内容
+                            $("#copy-code").select(); // 选中文本
+                            document.execCommand("copy"); // 执行浏览器复制命令
+							//js复制文本
+//                            var text = document.getElementById('code').innerText;
+//                            var input = document.getElementById('copy-code');
+//                            console.log('text:;',text);
+//                            console.log('$("#code"):;',$("#code"),'$("#copy-code"):;',$("#copy-code"));
+//                            console.log('$("#code"):;',$("#code").html(),'$("#copy-code"):;',$("#copy-code").html());
+//                            input.value = text; // 修改文本框的内容
+//                            input.select(); // 选中文本
+//                            document.execCommand("copy"); // 执行浏览器复制命令
+
+							//跳转到指定页面
+                            var useUrl = "http://film.qq.com/duihuan.html";
+                            window.location.href = useUrl;
+                        });
+
                     },
                     error:function (XMLHttpRequest, textStatus, errorThrown) {
                         alert("请求失败！");
